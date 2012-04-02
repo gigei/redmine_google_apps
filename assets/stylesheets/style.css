@@ -1,5 +1,6 @@
 .google-apps {
   background-image: url(/plugin_assets/google_apps/images/apps_logo_large.jpg);
+  background-size: 16px 16px;
 }
 
 .google-apps-login-links {
