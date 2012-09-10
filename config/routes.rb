@@ -1,0 +1,7 @@
+get 'google_apps', :to => 'google_apps#admin'
+get 'google_apps/login', :to => 'google_apps#login'
+get 'google_apps/login/:id', :to => 'google_apps#login'
+get 'google_apps/add', :to => 'google_apps#add'
+post 'google_apps/add', :to => 'google_apps#add'
+get 'google_apps/delete/:id', :to => 'google_apps#delete'
+delete 'google_apps/delete', :to => 'google_apps#delete'

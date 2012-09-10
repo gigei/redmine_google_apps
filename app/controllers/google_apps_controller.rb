@@ -9,7 +9,7 @@ class GoogleAppsController < AccountController
   AX_LAST = 'http://axschema.org/namePerson/last'
 
   def login
-    domain = GoogleAppsAuthSource.find params[:domain]
+    domain = GoogleAppsAuthSource.find params[:id]
     oid = "https://www.google.com/accounts/o8/site-xrds?hd=#{domain.name}"
     attributes = [AX_EMAIL, AX_FIRST, AX_LAST]
 
@@ -56,7 +56,7 @@ class GoogleAppsController < AccountController
   end
 
   def delete
-    GoogleAppsAuthSource.delete_all :name => params[:domain]
+    GoogleAppsAuthSource.delete_all :id => params[:id]
     redirect_to :action => :admin
   end
 

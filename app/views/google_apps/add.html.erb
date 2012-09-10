@@ -1,0 +1,8 @@
+<h2><%= link_to 'Google Apps', :controller => 'google_apps', :action => 'admin' %> &#187; New domain</h2>
+
+<%= labelled_form_for :buidler, :domain do |f| %>
+<%= render :partial => 'form', :locals => { :f => f } %>
+<p>
+  <%= f.submit l(:button_create) %>
+</p>
+<% end %>
