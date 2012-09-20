@@ -13,8 +13,9 @@ class GoogleAppsController < AccountController
     oid = "https://www.google.com/accounts/o8/site-xrds?hd=#{domain.name}"
     attributes = [AX_EMAIL, AX_FIRST, AX_LAST]
 
-    authenticate_with_open_id(oid, :return_to => request.url, :required => attributes) do |result, identity_url, profile_data|
+    authenticate_with_open_id(oid, :return_to => request.url, :required => attributes) do |result, identity_url, registration, extend_attributes|
       if result.successful?
+	profile_data = OpenID::AX::FetchResponse.from_success_response request.env[Rack::OpenID::RESPONSE]
         email = profile_data[AX_EMAIL].first
         first = profile_data[AX_FIRST].first
         last = profile_data[AX_LAST].first
